@@ -14,9 +14,9 @@
   },
   "customHandler": {
     "description": {
-      "defaultExecutablePath": "main.rb",
+      "defaultExecutablePath": "ruby-2.6.3/bin/ruby",
       "workingDirectory": "",
-      "arguments": []
+      "arguments": [ "handler.rb" ]
     }
   }
 }
