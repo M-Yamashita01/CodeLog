@@ -7,10 +7,18 @@ before do
 end
 
 get '/api/hello' do
+  puts '------api/helo------'
   content_type :json
   name = params[:name]
   data = {name: name ? 
     "Hello, #{name}" : 
     'Pass a name in the query string for a personalized response.'}
+  data.to_json
+end
+
+get '/api/codelog' do
+  data = {
+    text: 'Hello, World'
+  }
   data.to_json
 end
