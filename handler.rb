@@ -7,7 +7,6 @@ before do
 end
 
 get '/api/hello' do
-  puts '------api/helo------'
   content_type :json
   name = params[:name]
   data = {name: name ? 
@@ -17,8 +16,11 @@ get '/api/hello' do
 end
 
 get '/api/codelog' do
+  method_name = params[:method_name]
+  file_path = params[:file_path]
   data = {
-    text: 'Hello, World'
+    method_name: method_name,
+    file_path: file_path
   }
   data.to_json
 end
