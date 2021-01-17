@@ -1,7 +1,6 @@
 FROM ruby:3.0.0-alpine3.12
 
-# 必要なパッケージのインストール（基本的に必要になってくるものだと思うので削らな
-いこと）
+# 必要なパッケージのインストール（基本的に必要になってくるものだと思うので削らないこと）
 RUN apk update && \
     apk --no-cache add build-base \
                        mysql-dev \
