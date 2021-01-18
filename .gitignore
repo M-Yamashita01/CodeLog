@@ -34,3 +34,5 @@
 
 # Ignore vscode setting
 .vscode
+
+docker/db/data
