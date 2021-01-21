@@ -6,12 +6,12 @@
 #
 default: &default
   adapter: mysql2
-  encoding: utf-8
+  encoding: utf8
   pool: 5
-  username: <%= ENV['MYSQL_USER']
-  password: <%= ENV['MYSQL_PASSWORD']
-  host: <%= ENV['MYSQL_DATABASE']
-  database: <%= ENV['MYSQL_DATABASE']
+  username: <%= ENV['MYSQL_USER'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
+  host: <%= ENV['MYSQL_DATABASE'] %>
+  database: <%= ENV['MYSQL_DATABASE'] %>
   socket: /tmp/mysql.sock
 
 development:
