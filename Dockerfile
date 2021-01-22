@@ -18,6 +18,8 @@ COPY Gemfile* ./
 # Gemfileのbundle install
 RUN gem install bundler:2.0.1 && bundle install
 
-COPY . ./
+COPY . /usr/src/app
+
+WORKDIR /usr/src/app
 
 CMD bundle exec rake app:update:bin && bundle exec rails s -p 3000 -b '0.0.0.0'
