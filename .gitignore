@@ -29,6 +29,11 @@
 /public/assets
 .byebug_history
 
+bin
+.ruby-version
+yarn.lock
+Gemfile.lock
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
@@ -36,3 +41,9 @@
 .vscode
 
 docker/db/data
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
