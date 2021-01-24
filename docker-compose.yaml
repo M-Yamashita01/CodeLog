@@ -26,8 +26,9 @@ services:
       MYSQL_DATABASE: codelogdb
       MYSQL_USER: user
       MYSQL_PASSWORD: password
-    volumes:
-      - .:/usr/src/app
+      DB_HOST: db
+    # volumes:
+      # - .:/usr/src/app
     ports:
       - '3000:3000'
     depends_on:
