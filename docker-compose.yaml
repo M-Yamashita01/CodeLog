@@ -4,7 +4,7 @@ services:
   db:
     image: mysql:5.7
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: codelogdb
       MYSQL_USER: user
       MYSQL_PASSWORD: password
@@ -21,7 +21,7 @@ services:
       context: .
       dockerfile: Dockerfile
     environment: 
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: codelogdb
       MYSQL_USER: user
       MYSQL_PASSWORD: password
