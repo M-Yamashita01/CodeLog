@@ -2,23 +2,17 @@ version: '3.7'
 
 services:
   db:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: codelogdb
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-      TZ: 'Asia/Tokyo'
-    command: mysqld
+    build:
+      context: ./db
+      dockerfile: Dockerfile
     volumes:
-    - ./docker/db/data:/var/lib/mysql
-    # - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
+    - ./db/data:/var/lib/mysql
     ports:
     - 3306:3306
 
   server:
     build:
-      context: .
+      context: ./server
       dockerfile: Dockerfile
     environment: 
       MYSQL_ROOT_PASSWORD: password
@@ -27,7 +21,7 @@ services:
       MYSQL_PASSWORD: password
       DB_HOST: db
     volumes:
-      - .:/usr/src/app
+      - ./server:/usr/src/app
     ports:
       - '3000:3000'
     depends_on:

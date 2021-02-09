@@ -40,7 +40,6 @@ Gemfile.lock
 # Ignore vscode setting
 .vscode
 
-docker/db/data
 /public/packs
 /public/packs-test
 /node_modules
