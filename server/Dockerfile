@@ -15,11 +15,16 @@ RUN apk update && \
 # ホスト側（ローカル）のGemfileを追加する
 COPY Gemfile* ./
 
+RUN apk add yarn
+
 # Gemfileのbundle install
-RUN gem install bundler:2.0.1 && bundle install
+RUN gem install bundler:2.0.1 && \
+    bundle install
 
 COPY . /usr/src/app
 
 WORKDIR /usr/src/app
 
-CMD bundle exec rake app:update:bin && bundle exec rails s -p 3000 -b '0.0.0.0'
+RUN bundle exec rake webpacker:install
+
+CMD bundle exec rails s -p 3000 -b '0.0.0.0'
