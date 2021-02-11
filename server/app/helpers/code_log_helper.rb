@@ -1,0 +1,2 @@
+module CodeLogHelper
+end
