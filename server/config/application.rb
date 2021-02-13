@@ -1,6 +1,8 @@
 require_relative "boot"
 
 require "rails/all"
+require File.expand_path('../boot', __FILE__)
+
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -18,5 +20,6 @@ module Codelog
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.assets.precompile += %w[*.png *.jpg *.jpeg *.gif]
   end
 end
