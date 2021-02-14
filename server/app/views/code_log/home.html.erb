@@ -1,11 +1,12 @@
 <div class="center hero-unit">
-  <h1>Welcome to the Sample App</h1>
+  <h3>
+    Repository
+  </h3>
+  <%= form_tag({ controller: 'code_log', action: 'get_repository' }, { method: :post}) do %>
+    <div>
+      <%= text_field :title, class: "hogehoge" %>
+    </div>
 
-  <h2>
-    This is the home page for the
-    <a href="http://railstutorial.jp/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
-
-  <!--<%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>-->
+    <%= submit_tag "作成" %>
+  <% end %>
 </div>
