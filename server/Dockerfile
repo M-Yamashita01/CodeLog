@@ -7,7 +7,8 @@ RUN apk update && \
                        curl \
                        bash \
                        nodejs \
-                       tzdata && \
+                       tzdata \
+                       git && \
     cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
     echo "Asia/Tokyo" > /etc/timezone && \
     apk del tzdata
