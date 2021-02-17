@@ -2,11 +2,14 @@
   <h3>
     Repository
   </h3>
-  <%= form_tag({ controller: 'code_log', action: 'get_repository' }, { method: :post}) do %>
-    <div>
-      <%= text_field :title, class: "hogehoge" %>
-    </div>
-
-    <%= submit_tag "作成" %>
+  <%= form_with url: code_log_get_repository_path do |form| %>
+    <%= form.text_field :repository %>
+    <%= form.submit "リポジトリ取得" %>
   <% end %>
+
+  <h3>
+    Repository list
+  </h3>
+  
+
 </div>
