@@ -29,7 +29,6 @@
 /public/assets
 .byebug_history
 
-bin
 .ruby-version
 yarn.lock
 Gemfile.lock
