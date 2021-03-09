@@ -14,6 +14,14 @@ jobs:
         uses: reviewdog/action-rubocop@v1
         with:
           rubocop_version: 1.8.1
-          # rubocop_extensions: rubocop-rails:gemfile rubocop-rspec:gemfile
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review # Default is github-pr-check
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.0
+      - name: rubocop
+        uses: reviewdog/action-rubocop@v1
+        with:
+          rubocop_version: 1.8.1
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review # Default is github-pr-check
