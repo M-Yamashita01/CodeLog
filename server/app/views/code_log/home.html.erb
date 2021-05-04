@@ -14,6 +14,16 @@
     <% @repository_list.each do |repository| %>
       <li><%= repository %></li>
     <% end %>
-  
+  </div>
+
+  <h3>
+    File Path/Method Name
+  </h3>
+  <%= form_with url: code_log_get_git_log_path do |form| %>
+    <%= form.select :select_repository_name, @repository_list%>
+    <%= form.text_field :file_path, placeholder: 'file path(e.g. xxx/yyy.rb)' %>
+    <%= form.text_field :method_name, placeholder: 'method name(e.g. method)' %>
+    <%= form.submit "メソッドのログ取得" %>
+  <% end %>
 
 </div>

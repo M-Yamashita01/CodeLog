@@ -27,6 +27,14 @@ class CodeLogController < ApplicationController
     redirect_to('/code_log/home')
   end
 
+  def get_git_log
+    file_path = params[:file_path]
+    method_name = params[:method_name]
+    selected_repository_name = params[:select_repository_name]
+    logger.info("params: #{params.inspect}")
+    redirect_to('/code_log/home')
+  end
+
   private
 
   def execute_cmd(cmd)
@@ -35,5 +43,4 @@ class CodeLogController < ApplicationController
     p stderr
     p status
   end
-
 end
