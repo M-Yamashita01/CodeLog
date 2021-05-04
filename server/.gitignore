@@ -47,3 +47,6 @@ Gemfile.lock
 yarn-debug.log*
 .yarn-integrity
 .browserslistrc
+
+# Ignore checkout repository path
+/repository
