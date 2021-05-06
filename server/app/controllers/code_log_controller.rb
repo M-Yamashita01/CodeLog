@@ -23,6 +23,8 @@ class CodeLogController < ApplicationController
     execute_cmd(create_repository_dir_cmd)
     clone_repository_cmd = "git clone #{repository_name} #{checkout_path}"
     execute_cmd(clone_repository_cmd)
+    chmod_cmd = "chmod g+rwx #{checkout_path}/.git"
+    execute_cmd(chmod_cmd)
 
     redirect_to('/code_log/home')
   end
@@ -32,6 +34,13 @@ class CodeLogController < ApplicationController
     method_name = params[:method_name]
     selected_repository_name = params[:select_repository_name]
     logger.info("params: #{params.inspect}")
+
+    absolute_file_path = "#{selected_repository_name}/#{file_path}"
+    git_log_command = "cd #{selected_repository_name};git log -L'/def #{method_name}/,/end/:#{absolute_file_path}'"
+    logger.info("cd #{selected_repository_name};git log command: #{git_log_command}")
+
+    execute_cmd(git_log_command)
+
     redirect_to('/code_log/home')
   end
 
