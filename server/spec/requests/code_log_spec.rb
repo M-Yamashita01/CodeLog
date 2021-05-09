@@ -6,8 +6,22 @@ RSpec.describe "CodeLogs", type: :request do
   end
 
   describe "#get_git_log" do
-    it 'test' do
-      expect('test').to eq 'test'
+    subject { post code_log_get_git_log_path, params: params }
+
+    context '正常系' do
+      let(:params) {
+        {
+          file_path: 'foo/bar/hoge.rb',
+          method_name: 'test_method',
+          select_repository_name: 'repository_name',
+        }
+      }
+
+      it 'test' do
+
+        subject
+        expect('test').to eq 'test'
+      end
     end
   end
 end
