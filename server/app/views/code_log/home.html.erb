@@ -11,7 +11,7 @@
     Repository list
   </h3>
   <div>
-    <% @repository_list.each do |repository| %>
+    <% @repository_list.try(:each) do |repository| %>
       <li><%= repository %></li>
     <% end %>
   </div>
