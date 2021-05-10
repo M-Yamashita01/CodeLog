@@ -41,7 +41,7 @@ class CodeLogController < ApplicationController
 
     execute_cmd(git_log_command)
 
-    redirect_to('/code_log/home')
+    render json: { status: 200, message: 'test'}
   end
 
   private

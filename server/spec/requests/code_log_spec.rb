@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'json'
 
 RSpec.describe "CodeLogs", type: :request do
   describe "GET /index" do
@@ -17,10 +18,11 @@ RSpec.describe "CodeLogs", type: :request do
         }
       }
 
-      it 'test' do
-
+      it 'ステータス200が返されること' do
         subject
-        expect('test').to eq 'test'
+        expect(response).to have_http_status(:ok)
+        response_body = JSON.parse(response.body)
+        expect(response_body['message']).to eq 'test'
       end
     end
   end
