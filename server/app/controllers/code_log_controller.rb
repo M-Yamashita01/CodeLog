@@ -39,9 +39,9 @@ class CodeLogController < ApplicationController
     git_log_command = "cd #{selected_repository_name};git log -L'/def #{method_name}/,/end/:#{absolute_file_path}'"
     logger.info("cd #{selected_repository_name};git log command: #{git_log_command}")
 
-    execute_cmd(git_log_command)
+    cmd_result = execute_cmd(git_log_command)
 
-    render json: { status: 200, message: 'test'}
+    render json: { status: 200, message: cmd_result }
   end
 
   private
@@ -51,5 +51,7 @@ class CodeLogController < ApplicationController
     p stdout
     p stderr
     p status
+
+    stdout
   end
 end
