@@ -12,17 +12,24 @@ RSpec.describe "CodeLogs", type: :request do
     subject { get code_log_home_path }
 
     context '正常系' do
-      let(:repository_path) { "#{Rails.root}/repository/hoge/foo" }
+      let(:repository_path_list) {
+        [
+          "#{Rails.root}/repository/hoge/foo",
+          "#{Rails.root}/repository/bar/test"
+        ]
+      }
 
       before do
-        FileUtils.mkdir_p(repository_path)
+        repository_path_list.each do |repository_path|
+          FileUtils.mkdir_p(repository_path)
+        end
       end
 
       it 'ステータス200が返されること' do
         subject
         expect(response).to have_http_status(:ok)
         repository_list = controller.instance_variable_get('@repository_list')
-        expect(repository_list).to eq [repository_path]
+        expect(repository_list).to eq contain_exactly(repository_path_list)
       end
     end
 
