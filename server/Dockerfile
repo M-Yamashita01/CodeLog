@@ -13,8 +13,10 @@ RUN apk update && \
     echo "Asia/Tokyo" > /etc/timezone && \
     apk del tzdata
 
+WORKDIR /usr/src/app
+
 # ホスト側（ローカル）のGemfileを追加する
-COPY Gemfile* ./
+COPY Gemfile* /usr/src/app
 
 RUN apk add yarn
 
@@ -23,8 +25,6 @@ RUN gem install bundler:2.0.1 && \
     bundle install
 
 COPY . /usr/src/app
-
-WORKDIR /usr/src/app
 
 RUN bundle exec rake webpacker:install
 
